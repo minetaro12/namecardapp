@@ -6,6 +6,35 @@ p {
 }
 
 input[type="number"] {
+  border: 1px solid gray;
+  border-radius: 5px;
   padding: 5px;
   width: 50px;
+}
+
+input[type="file"] {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+::file-selector-button {
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 5px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
