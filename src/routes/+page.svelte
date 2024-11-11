@@ -2,6 +2,7 @@
   let img = $state("sample.png");
   let num = $state(8);
   let files: FileList | null | undefined = $state();
+  let position = $state();
 
   $effect(() => {
     if (files) {
@@ -17,12 +18,23 @@
 </script>
 
 <div class="control-panel">
-  <label>
-    <span>枚数</span>
-    <input type="number" bind:value={num} />
-  </label>
-  <input type="file" accept="image/*" bind:files />
-  <button onclick={() => window.print()}>印刷</button>
+  <div class="control-panel-container">
+    <div>
+      <label>
+        <span>枚数</span>
+        <input type="number" bind:value={num} />
+      </label>
+      <input type="file" accept="image/*" bind:files />
+      <button onclick={() => window.print()}>印刷</button>
+    </div>
+    <div>
+      <button onclick={() => position="top"}>↑</button>
+      <button onclick={() => position="bottom"}>↓</button>
+      <button onclick={() => position="left"}>←</button>
+      <button onclick={() => position="right"}>→</button>
+      <button onclick={() => position="unset"}>Reset</button>
+    </div>
+  </div>
   <p>※縦横比1:1.65(55mm x 91mm)推奨</p>
   <p>※このツールはブラウザ内のみで画像を処理します</p>
 </div>
@@ -30,7 +42,7 @@
 <div class="container">
   {#each { length: num } as _}
     <div class="card">
-      <img src={img} alt="namecard" />
+      <img src={img} alt="namecard" style="object-position: {position};"/>
     </div>
   {/each}
 </div>
@@ -43,6 +55,12 @@
 
   .control-panel {
     margin: 10px;
+  }
+
+  .control-panel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .container {
