@@ -28,10 +28,10 @@
       <button onclick={() => window.print()}>印刷</button>
     </div>
     <div>
-      <button onclick={() => position="top"}>↑</button>
-      <button onclick={() => position="bottom"}>↓</button>
-      <button onclick={() => position="left"}>←</button>
-      <button onclick={() => position="right"}>→</button>
+      <button onclick={() => position="top"}>⬆</button>
+      <button onclick={() => position="bottom"}>⬇</button>
+      <button onclick={() => position="left"}>⬅</button>
+      <button onclick={() => position="right"}>⮕</button>
       <button onclick={() => position="unset"}>Reset</button>
     </div>
   </div>
